@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Sidebar from './Sidebar/Sidebar';
+import Editor from './Editor/Editor';
 import './App.css';
 
 const firebase = require('firebase');
@@ -27,8 +29,14 @@ class App extends Component {
   render() {
 
     return (
-      <h1>Hello world</h1>
+      <Fragment>
+        <div className="app-container">
+          <Sidebar />
+          <Editor />
+        </div>
+      </Fragment>
     )
+
   }
 }
 
