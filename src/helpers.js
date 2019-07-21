@@ -13,5 +13,5 @@ export default function debounce(a, b, c) {
 
 // regex to preview left sidebar
 export function removeHTMLTags(str) {
-    return str.replae(/<[^>]*>?/gm, '');
+    return str.replace(/<[^>]*>?/gm, '');
 };
