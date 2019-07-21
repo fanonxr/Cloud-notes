@@ -6,10 +6,35 @@ import { withStyles } from '@material-ui/core/styles';
 import style from './style';
 
 class Editor extends Component {
+    state = {
+        text: '',
+        title: '',
+        id: ''
+    };
+
+    update = debounce(() => {
+        // TODO: update the databse
+        console.log("Updating database")
+    }, 3000)
+
+    updateBody = async (val) => {
+        // wait to update the state based on the user typing
+        await this.setState({ text: val });
+        this.update();
+    };
+
     render() {
+
+        const { classes } = this.props; // classes is from firebase
+        const { text, title, id } = this.state;
+
         return (
-            <div>
-                <h1>Hello from editor</h1>
+            <div className={classes.editorContainer}>
+                <ReactQuill
+                    value={text}
+                    onChange={this.updateBody}>
+
+                </ReactQuill>
             </div>
         )
     }

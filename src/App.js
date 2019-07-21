@@ -28,11 +28,19 @@ class App extends Component {
 
   render() {
 
+    const { selectedNotedIndex, selectedNote, notes } = this.state;
+
     return (
+
       <Fragment>
         <div className="app-container">
-          <Sidebar />
-          <Editor />
+          <Sidebar
+            selectedNotedIndex={selectedNotedIndex}
+            notes={notes}
+          />
+
+          <Editor
+          />
         </div>
       </Fragment>
     )
