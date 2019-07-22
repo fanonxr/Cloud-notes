@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import style from './style';
 import List from '@material-ui/core/list';
 import { Divider, Button } from '@material-ui/core';
-import SideBarItem from '../SidebarItem/SidebarItem';
 import SidebarItem from '../SidebarItem/SidebarItem';
 
 class Sidebar extends Component {
@@ -21,7 +20,9 @@ class Sidebar extends Component {
 
     // function creating a new note
     newNote = () => {
-        console.log(this.state);
+        this.props.newNote(this.state.title);
+
+        this.setState({ title: null, addingNote: false });
     }
 
     // function to update the title
@@ -31,13 +32,15 @@ class Sidebar extends Component {
     }
 
     // function to select note that will be editable
-    selectNote = () => {
+    selectNote = (n, i) => {
         console.log("Selecting Note");
+        this.props.selectNote(n, i);
     }
 
     // function to delete the note
-    deleteNote = () => {
+    deleteNote = (note) => {
         console.log("Deleting Note");
+        this.props.deleteNote(note);
     }
 
 
